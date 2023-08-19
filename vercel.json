@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "framework": "node",
+  "functions": {
+    "/(.*)": {
+      "timeout": 30
+    }
+  },
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "methods": ["POST", "GET", "PUT", "DELETE", "PATCH"]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "./server.js"
+    }
+  ]
+}
